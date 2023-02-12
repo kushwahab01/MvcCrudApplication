@@ -20,23 +20,15 @@
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="Company" class="control-label"></label>
                 <input asp-for="Company" class="form-control" />
                 <span asp-validation-for="Company" class="text-danger"></span>
             </div>
+            
+            
             <div class="form-group mb-3">
-                <label asp-for="Cid" class="control-label"></label>
-                <input asp-for="Cid" class="form-control" />
-                <span asp-validation-for="Cid" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Cname" class="control-label"></label>
-                <input asp-for="Cname" class="form-control" />
-                <span asp-validation-for="Cname" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label class="control-label">Dept</label>
+                <label class="control-label">Categorys</label>
                 <select class="form-control" asp-for="Cid" asp-items="@(new SelectList(@ViewBag.CategoryList,"Cid","Cname"))"></select>
                 <div class="form-group mb-3">
                     <input type="submit" value="Save" class="btn btn-outline-primary" />

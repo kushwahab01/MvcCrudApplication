@@ -14,7 +14,6 @@ namespace WebApplication1.Models
 
         [Required]
         [Display(Name ="Product Name")]
-        [MaxLength(40)]
         public string? Pname { get; set; }
 
         [Required]

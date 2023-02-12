@@ -86,7 +86,7 @@ namespace WebApplication1.Models
         {
             int result = 0;
             p.IsActive = 1;
-            string qry = "update Product set Pname=@Pname,Pname=@Pname,Price=@Price,Company=@Company,IsActive=@IsActive,Cid=@Cid where Pid=@Pid";
+            string qry = "update Product set Pname=@Pname,Price=@Price,Company=@Company,IsActive=@IsActive,Cid=@Cid where Pid=@Pid";
             cmd = new SqlCommand(qry, con);
             cmd.Parameters.AddWithValue("@Pid", p.Pid);
             cmd.Parameters.AddWithValue("@Pname", p.Pname);
@@ -102,9 +102,9 @@ namespace WebApplication1.Models
         public int DeleteEmployee(int Id)
         {
             int result = 0;
-            string qry = "delete from Employee where Id=@Pid";
+            string qry = "delete from Product where Pid=@Pid";
             cmd = new SqlCommand(qry, con);
-            cmd.Parameters.AddWithValue("@Id", Id);
+            cmd.Parameters.AddWithValue("@Pid", Id);
             con.Open();
             result = cmd.ExecuteNonQuery();
             con.Close();

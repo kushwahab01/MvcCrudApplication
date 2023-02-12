@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
                 }
 
             }
-            return View();
+            return View(list);
         }
 
         // GET: ProductController/Details/5
@@ -50,7 +50,7 @@ namespace WebApplication1.Controllers
                     {
                         if (item2.Cid == item.Cid)
                         {
-                            ViewData["bname"] = item2.Cname;
+                            ViewData["sname"] = item2.Cname;
                         }
                     }
                 }
@@ -89,11 +89,11 @@ namespace WebApplication1.Controllers
         }
 
         // GET: ProductController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int Id)
         {
             var clist = categoryCRUD.CategoryList();
             ViewBag.CategoryList = clist;
-            var p = crud.GetProductById(id);
+            var p = crud.GetProductById(Id);
 
             return View(p);
         }
@@ -107,9 +107,15 @@ namespace WebApplication1.Controllers
             {
                 int result = crud.UpdateProduct(p);
                 if (result == 1)
+                {
+                    ViewBag.Error = "";
                     return RedirectToAction(nameof(Index));
+                }
                 else
+                {
+                    ViewBag.Error = "Something went wrong";
                     return View();
+                }
             }
             catch
             {
