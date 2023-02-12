@@ -1,0 +1,50 @@
+﻿@model WebApplication1.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Update Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="Pname" class="control-label"></label>
+                <input asp-for="Pname" class="form-control" />
+                <span asp-validation-for="Pname" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Company" class="control-label"></label>
+                <input asp-for="Company" class="form-control" />
+                <span asp-validation-for="Company" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Cid" class="control-label"></label>
+                <input asp-for="Cid" class="form-control" />
+                <span asp-validation-for="Cid" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label">Category</label>
+                <select class="form-control" asp-for="Cid" asp-items="@(new SelectList(ViewBag.CategoryList,"Cid","Cname"))"></select>
+            </div>
+            <div class="form-group mb-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

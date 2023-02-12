@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplication1.Models.Dept>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Add Dept</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Deptid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeptName)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deptid)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeptName)
+                </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Deptid }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Deptid  }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Deptid })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebApplication1.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Add Category</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cname)
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cid)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cname)
+            </td>
+            <th>Action</th>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Cid}) |
+                    @Html.ActionLink("Details", "Details", new {id=item.Cid}) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Cid })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
